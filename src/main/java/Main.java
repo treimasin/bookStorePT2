@@ -30,13 +30,16 @@ public class Main {
                     3. Remove a book
                     4. Find a book by its ISBN
                     5. Find the most expensive book
+                    6. Find the cheapest book
+                    7. Find books earlier than 1990
+                    8. Find book by title
                     """);
 
             input = scanner.nextLine();
 
             switch (input) {
                 case "exit":
-                    System.out.println("Exiting the program...");
+                    System.out.println("Exiting the bookstore...");
                     break;
                 case "1":
                     storeBook.addBook();
@@ -52,6 +55,15 @@ public class Main {
                     break;
                 case "5":
                     storeBook.viewMostExpensiveBook();
+                    break;
+                case "6":
+                    storeBook.viewCheapestBook();
+                    break;
+                case "7":
+                    storeBook.findBookBefore1990();
+                    break;
+                case "8":
+                    storeBook.viewTitle();
                     break;
                 default:
                     System.out.println("Please select a valid input.");

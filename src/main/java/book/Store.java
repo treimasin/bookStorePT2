@@ -53,7 +53,7 @@ public class Store {
 
         for (Book book: books) {
             if (book.ISBN == ISBN) {
-                System.out.println("Title: " + book.title + ", price" + book.price);
+                System.out.println("Title: " + book.title + ", price: €" + book.price);
             } return;
 
         }
@@ -88,7 +88,43 @@ public class Store {
             }
         }
 
-        System.out.println("The most expensive book is " + mostExpensive.title + ", price: " + mostExpensive.price);
+        System.out.println("The most expensive book is " + mostExpensive.title + ", price: €" + mostExpensive.price);
+    }
+
+    public void viewCheapestBook() {
+        Book mostCheapest = books.get(0);
+
+        for (int i = 1; i < books.size(); i++) {
+            Book currentBook = books.get(i);
+            if ((currentBook.price < mostCheapest.price)) {
+                mostCheapest = currentBook;
+            }
+        }
+
+        System.out.println("The cheapest book is " + mostCheapest.title + ", price: €" + mostCheapest.price);
+    }
+
+    public void viewTitle() {
+        System.out.println("Please enter the title of the book to search for: ");
+
+        String title = scanner.nextLine();
+
+        for (Book book: books) {
+            if (book.title.equals(title)) {
+                System.out.println("Title: " + book.title + ", price: €" + book.price);
+            }
+            return;
+        }
+    }
+
+    public void findBookBefore1990() {
+        ArrayList<Book> booksBefore1990 = new ArrayList<>();
+
+        for (Book book: books) {
+            if (book.yearOfRelease < 1990) {
+                System.out.println("Book title: " + book.title + ", year of release: " + book.yearOfRelease);
+            }
+        }
     }
 
 }
